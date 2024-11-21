@@ -1,4 +1,4 @@
-package edu.liceo.daniel.motogp;
+package edu.liceo.eloy.motogp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
