@@ -1,16 +1,4 @@
-INSERT INTO piloto (id, nombre, conducción) VALUES
-(1, 'Marc Márquez', 'agresiva'),
-(2, 'Valentino Rossi', 'temeraria'),
-(3, 'Fabio Quartararo', 'pasiva'),
-(4, 'Francesco Bagnaia', 'agresiva'),
-(5, 'Joan Mir', 'pasiva'),
-(6, 'Jack Miller', 'temeraria'),
-(7, 'Maverick Viñales', 'agresiva'),
-(8, 'Aleix Espargaró', 'pasiva'),
-(9, 'Brad Binder', 'agresiva'),
-(10, 'Enea Bastianini', 'temeraria');
-
-INSERT INTO circuito (id, nombre, localidad) VALUES
+INSERT INTO circuitos (id, nombre, localidad) VALUES
 (1, 'Losail', 'Catar'),
 (2, 'Termas de Río Hondo', 'Argentina'),
 (3, 'Austin', 'Estados Unidos'),
@@ -22,30 +10,44 @@ INSERT INTO circuito (id, nombre, localidad) VALUES
 (9, 'Misano', 'San Marino'),
 (10, 'Phillip Island', 'Australia');
 
-INSERT INTO carreras (id, id_piloto, id_circuito, temporada, posición) VALUES
-(1, 1, 1, '2023', 3),
-(2, 2, 1, '2023', 5),
-(3, 3, 1, '2023', 1),
-(4, 4, 2, '2023', 4),
-(5, 5, 2, '2023', 7),
-(6, 6, 2, '2023', 2),
-(7, 7, 3, '2023', 6),
-(8, 8, 3, '2023', 9),
-(9, 9, 3, '2023', 12),
-(10, 10, 4, '2023', 11),
-(11, 1, 4, '2023', 8),
-(12, 2, 5, '2023', 4),
-(13, 3, 5, '2023', 2),
-(14, 4, 6, '2023', 1),
-(15, 5, 6, '2023', 10),
-(16, 6, 7, '2023', 3),
-(17, 7, 7, '2023', 5),
-(18, 8, 8, '2023', 7),
-(19, 9, 8, '2023', 6),
-(20, 10, 9, '2023', 8),
-(21, 1, 9, '2023', 4),
-(22, 2, 10, '2023', 2),
-(23, 3, 10, '2023', 1),
+
+INSERT INTO pilotos (id, nombre, conduccion) VALUES
+(1, 'Marc Márquez', 'agresiva'),
+(2, 'Valentino Rossi', 'temeraria'),
+(3, 'Fabio Quartararo', 'pasiva'),
+(4, 'Francesco Bagnaia', 'agresiva'),
+(5, 'Joan Mir', 'pasiva'),
+(6, 'Jack Miller', 'temeraria'),
+(7, 'Maverick Viñales', 'agresiva'),
+(8, 'Aleix Espargaró', 'pasiva'),
+(9, 'Brad Binder', 'agresiva'),
+(10, 'Enea Bastianini', 'temeraria');
+
+
+    INSERT INTO carreras (id, id_piloto, id_circuito, temporada, posicion) VALUES
+    (1, 1, 1, '2023', 3),
+    (2, 2, 1, '2023', 5),
+    (3, 3, 1, '2023', 1),
+    (4, 4, 2, '2023', 4),
+    (5, 5, 2, '2023', 7),
+    (6, 6, 2, '2023', 2),
+    (7, 7, 3, '2023', 6),
+    (8, 8, 3, '2023', 9),
+    (9, 9, 3, '2023', 12),
+    (10, 10, 4, '2023', 11),
+    (11, 1, 4, '2023', 8),
+    (12, 2, 5, '2023', 4),
+    (13, 3, 5, '2023', 2),
+    (14, 4, 6, '2023', 1),
+    (15, 5, 6, '2023', 10),
+    (16, 6, 7, '2023', 3),
+    (17, 7, 7, '2023', 5),
+    (18, 8, 8, '2023', 7),
+    (19, 9, 8, '2023', 6),
+    (20, 10, 9, '2023', 8),
+    (21, 1, 9, '2023', 4),
+    (22, 2, 10, '2023', 2),
+    (23, 3, 10, '2023', 1),
 
 (24, 1, 1, '2024', 2),
 (25, 2, 2, '2024', 6),

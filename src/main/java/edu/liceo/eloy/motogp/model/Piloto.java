@@ -1,5 +1,12 @@
 package edu.liceo.eloy.motogp.model;
 
+import java.util.List;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import edu.liceo.eloy.motogp.model.enumerated.Conduccion;
 import jakarta.persistence.*;
 
@@ -11,11 +18,17 @@ public class Piloto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "nombre", length = 55, unique = false, nullable = false)
+    @Column(name = "nombre", length = 55, nullable = false)
     private String nombre;
 
-    @Column(name = "conduccion", columnDefinition = "ENUM('AGRESIVA', 'PASIVA', 'TEMERARIA')", unique = false, nullable = false)
+    @Enumerated(EnumType.STRING)
+    @Column(name = "conduccion", nullable = false)
     private Conduccion conduccion;
+
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OneToMany(mappedBy = "piloto", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Carrera> carreras;
 
     public Piloto() {
     }
@@ -59,6 +72,5 @@ public class Piloto {
     public String toString() {
         return "Piloto [id=" + id + ", nombre=" + nombre + ", conduccion=" + conduccion + "]";
     }
-    
-    
+
 }

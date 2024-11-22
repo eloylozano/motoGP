@@ -1,6 +1,11 @@
 package edu.liceo.eloy.motogp.model;
 
-import org.hibernate.annotations.GeneratorType;
+import java.util.List;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
 
@@ -12,29 +17,34 @@ public class Circuito {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "nombre", length = 55, unique = false, nullable = false)
+    @Column(name = "nombre", length = 55, nullable = false)
     private String nombre;
 
-    @Column(name = "localidad", length = 55, unique = false, nullable = false)
-    private String localdidad;
+    @Column(name = "localidad", length = 55, nullable = false)
+    private String localidad;
+
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OneToMany(mappedBy = "circuito", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Carrera> carreras;
 
     public Circuito() {
     }
 
-    public Circuito(String nombre, String localdidad) {
+    public Circuito(String nombre, String localidad) {
         this.nombre = nombre;
-        this.localdidad = localdidad;
+        this.localidad = localidad;
     }
 
-    public Circuito(long id, String nombre, String localdidad) {
+    public Circuito(long id, String nombre, String localidad) {
         this.id = id;
         this.nombre = nombre;
-        this.localdidad = localdidad;
+        this.localidad = localidad;
     }
 
     @Override
     public String toString() {
-        return "Circuito [id=" + id + ", nombre=" + nombre + ", localdidad=" + localdidad + "]";
+        return "Circuito [id=" + id + ", nombre=" + nombre + ", localidad=" + localidad + "]";
     }
 
     public long getId() {
@@ -53,12 +63,12 @@ public class Circuito {
         this.nombre = nombre;
     }
 
-    public String getLocaldidad() {
-        return localdidad;
+    public String getlocalidad() {
+        return localidad;
     }
 
-    public void setLocaldidad(String localdidad) {
-        this.localdidad = localdidad;
+    public void setlocalidad(String localidad) {
+        this.localidad = localidad;
     }
 
 }

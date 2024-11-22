@@ -1,32 +1,30 @@
 package edu.liceo.eloy.motogp.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "pilotos_carreras")
+@Table(name = "carreras")
 public class Carrera {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JoinColumn(name = "id_piloto")
-    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "id_piloto", nullable = false)
     private Piloto piloto;
 
-    @JoinColumn(name = "id_circuito")
-    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "id_circuito", nullable = false)
     private Circuito circuito;
 
-    @Column(name = "temporada", length = 4, unique = false, nullable = false)
-    private int temporada;
+    @Column(name = "temporada", nullable = false)
+    private String temporada;
 
-    @Column(name = "posicion", length = 2, unique = false, nullable = true)
-    private int posicion;
+    @Column(name = "posicion")
+    private Integer posicion;
 
-    public Carrera(Long id, Piloto piloto, Circuito circuito, int temporada, int posicion) {
+    public Carrera(Long id, Piloto piloto, Circuito circuito, String temporada, Integer posicion) {
         this.id = id;
         this.piloto = piloto;
         this.circuito = circuito;
@@ -61,12 +59,12 @@ public class Carrera {
         this.circuito = circuito;
     }
 
-    public int getTemporada() {
+    public String getTemporada() {
         return temporada;
     }
 
-    public void setTemporada(int temporada) {
-        this.temporada = temporada;
+    public String setTemporada() {
+        return temporada;
     }
 
     public int getPosicion() {
