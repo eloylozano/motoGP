@@ -26,7 +26,7 @@ public class PilotoService implements IPilotoService {
     }
 
     @Override
-    public Piloto buscarPiloto(long id) {
+    public Piloto buscarPiloto(Long id) {
         Optional<Piloto> op = pilotosRepo.findById(id);
         if (!op.isPresent()) {
             System.out.println("Piloto no encontrado");
@@ -39,7 +39,7 @@ public class PilotoService implements IPilotoService {
 
     @Override
     public Piloto actualiazrPiloto(Piloto piloto) {
-        Optional<Piloto> pilotoExistente = pilotosRepo.findbyNombre(piloto.getNombre());
+        Optional<Piloto> pilotoExistente = pilotosRepo.findByNombre(piloto.getNombre());
 
         if (pilotoExistente.isPresent()) {
             Piloto pilotoActualizado = pilotoExistente.get();
@@ -52,7 +52,7 @@ public class PilotoService implements IPilotoService {
     }
 
     @Override
-    public Piloto borrarPiloto(long id) {
+    public Piloto borrarPiloto(Long id) {
         Optional<Piloto> op = pilotosRepo.findById(id);
         if (!op.isPresent()) {
             System.out.println("Piloto no encontrado. No se pudo borrar!");
@@ -63,5 +63,6 @@ public class PilotoService implements IPilotoService {
             return op.get();
         }
     }
+
 
 }

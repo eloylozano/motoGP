@@ -8,6 +8,6 @@ import edu.liceo.eloy.motogp.model.Piloto;
 
 public interface IPilotoRepository extends JpaRepository<Piloto, Long> {
 
-    public Optional<Piloto> findbyNombre(String nombre);
+    Optional<Piloto> findByNombre(String nombre);
 
 }

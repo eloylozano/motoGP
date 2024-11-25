@@ -10,10 +10,10 @@ public interface IPilotoService {
 
     public Piloto guardarPiloto(Piloto piloto);
 
-    public Piloto buscarPiloto(long id);
+    public Piloto buscarPiloto(Long id);
 
     public Piloto actualiazrPiloto(Piloto piloto);
 
-    public Piloto borrarPiloto(long id);
+    public Piloto borrarPiloto(Long id);
 
 }
