@@ -32,13 +32,13 @@ public class PilotoService implements IPilotoService {
             System.out.println("Piloto no encontrado");
             return null;
         } else {
-            System.out.println("Piloto borrado con éxito!");
+            System.out.println("Piloto encontrado con éxito!");
             return op.get();
         }
     }
 
     @Override
-    public Piloto actualiazrPiloto(Piloto piloto) {
+    public Piloto actualizarPiloto(Piloto piloto) {
         Optional<Piloto> pilotoExistente = pilotosRepo.findByNombre(piloto.getNombre());
 
         if (pilotoExistente.isPresent()) {

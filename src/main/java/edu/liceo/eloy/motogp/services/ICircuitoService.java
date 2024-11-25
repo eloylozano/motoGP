@@ -12,8 +12,8 @@ public interface ICircuitoService {
 
     public Circuito actualizarCircuito(Circuito circuito);
 
-    public Circuito buscarcirCircuito(long id);
+    public Circuito buscarCircuito(Long id);
 
-    public Circuito borrarCircuito(long id);
+    public Circuito eliminarCircuito(Long id);
 
 }

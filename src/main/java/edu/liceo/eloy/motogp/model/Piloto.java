@@ -26,7 +26,7 @@ public class Piloto {
     private Conduccion conduccion;
 
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @OneToMany(mappedBy = "piloto", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "piloto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Carrera> carreras;
 

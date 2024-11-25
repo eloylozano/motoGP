@@ -12,7 +12,7 @@ public interface IPilotoService {
 
     public Piloto buscarPiloto(Long id);
 
-    public Piloto actualiazrPiloto(Piloto piloto);
+    public Piloto actualizarPiloto(Piloto piloto);
 
     public Piloto borrarPiloto(Long id);
 

@@ -24,7 +24,7 @@ public class Circuito {
     private String localidad;
 
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @OneToMany(mappedBy = "circuito", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "circuito", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<Carrera> carreras;
 
@@ -63,12 +63,20 @@ public class Circuito {
         this.nombre = nombre;
     }
 
-    public String getlocalidad() {
+    public String getLocalidad() {
         return localidad;
     }
 
-    public void setlocalidad(String localidad) {
+    public void setLocalidad(String localidad) {
         this.localidad = localidad;
+    }
+
+    public List<Carrera> getCarreras() {
+        return carreras;
+    }
+
+    public void setCarreras(List<Carrera> carreras) {
+        this.carreras = carreras;
     }
 
 }

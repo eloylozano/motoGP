@@ -25,13 +25,13 @@ public class PilotoController {
     }
 
     @GetMapping("pilotos/{id}")
-     public Piloto verPiloto(@PathVariable("id") Long id) {
+    public Piloto verPiloto(@PathVariable("id") Long id) {
         return pilotoService.buscarPiloto(id);
     }
 
     @PutMapping("actualizarpiloto")
     public Piloto actualizarPiloto(@RequestBody Piloto piloto) {
-        return pilotoService.actualiazrPiloto(piloto);
+        return pilotoService.actualizarPiloto(piloto);
     }
 
     @DeleteMapping("eliminarpiloto/{id}")
