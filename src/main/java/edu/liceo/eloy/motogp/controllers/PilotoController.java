@@ -9,6 +9,7 @@ import edu.liceo.eloy.motogp.model.Piloto;
 import edu.liceo.eloy.motogp.services.IPilotoService;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 @RequestMapping("/pilotos")
 public class PilotoController {
@@ -45,5 +46,11 @@ public class PilotoController {
     public Set<Piloto> getPilotosEnPodium() {
         return pilotoService.pilotosConPodium();  
     }
+
+    @GetMapping("/maslaureado")
+    public Piloto masLaureado() {
+        return pilotoService.mayorVictorias();
+    }
+    
 
 }

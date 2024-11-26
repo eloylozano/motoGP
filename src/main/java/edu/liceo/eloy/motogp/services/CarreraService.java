@@ -1,12 +1,15 @@
 package edu.liceo.eloy.motogp.services;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.liceo.eloy.motogp.model.Carrera;
+import edu.liceo.eloy.motogp.model.Piloto;
 import edu.liceo.eloy.motogp.repositories.ICarreraRepository;
 import jakarta.transaction.Transactional;
 
@@ -66,6 +69,11 @@ public class CarreraService implements ICarreraService {
         } else {
             System.out.println("No se pudo borrar la carrera con el id: " + id);
         }
+    }
+
+    @Override
+    public List<Carrera> verPodiums() {
+        return carrerasRepo.findByPosicionBetween(1,3);
     }
 
     

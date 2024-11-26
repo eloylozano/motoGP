@@ -41,6 +41,9 @@ public class CarreraController {
         carreraService.borrarCarreras(id);
     }
 
-    
+    @GetMapping("/podiums")
+    public List<Carrera> getPilotosEnPodium() {
+        return carreraService.verPodiums();  
+    }
     
 }

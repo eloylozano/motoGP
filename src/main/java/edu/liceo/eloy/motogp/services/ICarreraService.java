@@ -1,6 +1,7 @@
 package edu.liceo.eloy.motogp.services;
 
 import java.util.List;
+import java.util.Set;
 
 import edu.liceo.eloy.motogp.model.Carrera;
 import edu.liceo.eloy.motogp.model.Piloto;
@@ -17,5 +18,5 @@ public interface ICarreraService {
 
     public void borrarCarreras(Long id);
 
-
+    public List<Carrera> verPodiums();
 }

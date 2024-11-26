@@ -19,4 +19,7 @@ public interface IPilotoService {
 
     public Set<Piloto> pilotosConPodium();
 
+    public Piloto mayorVictorias();
+
+
 }

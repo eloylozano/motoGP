@@ -20,6 +20,7 @@ public class PilotoService implements IPilotoService {
 
     @Autowired
     IPilotoRepository pilotosRepo;
+
     @Autowired
     ICarreraRepository carrerasRepo;
 
@@ -39,7 +40,7 @@ public class PilotoService implements IPilotoService {
         if (op.isPresent()) {
             System.out.println("Piloto encontrado con éxito!");
             return op.get();
-            
+
         } else {
             System.out.println("Piloto no encontrado");
             return null;
@@ -81,6 +82,39 @@ public class PilotoService implements IPilotoService {
         return pilotosPodium;
     }
 
-
+    @Override
+    public Piloto mayorVictorias() {
+        List<Carrera> carreras = carrerasRepo.findByPosicion(1);
+        List<Piloto> pilotosUnicos = new ArrayList<>();
+        List<Integer> conteos = new ArrayList<>();
+        Piloto pilotoLaureado = null;
+        int maxVictorias = 0;
+    
+        // Recorrer las carreras
+        for (Carrera carrera : carreras) {
+            Piloto piloto = carrera.getPiloto();
+    
+            // Buscar si el piloto ya está en la lista de únicos
+            int index = pilotosUnicos.indexOf(piloto);
+            if (index != -1) {
+                // Si está, incrementar su conteo
+                conteos.set(index, conteos.get(index) + 1);
+            } else {
+                // Si no está, añadirlo como único y empezar su conteo
+                pilotosUnicos.add(piloto);
+                conteos.add(1);
+            }
+        }
+    
+        // Determinar el piloto con más victorias
+        for (int i = 0; i < conteos.size(); i++) {
+            if (conteos.get(i) > maxVictorias) {
+                maxVictorias = conteos.get(i);
+                pilotoLaureado = pilotosUnicos.get(i);
+            }
+        }
+    
+        return pilotoLaureado;
+    }
 
 }
