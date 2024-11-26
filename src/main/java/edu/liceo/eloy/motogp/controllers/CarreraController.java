@@ -27,7 +27,7 @@ public class CarreraController {
         return carreraService.buscarCarrera(id);
     }
     
-    @PutMapping("carreras/save")
+    @PostMapping("carreras/save")
     public Carrera agregarCarrera(@RequestBody Carrera carrera) {
         return carreraService.guardarCarrera(carrera);
     }
