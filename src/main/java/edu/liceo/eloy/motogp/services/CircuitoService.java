@@ -38,21 +38,22 @@ public class CircuitoService implements ICircuitoService {
             for (Carrera carrera : circuito.getCarreras()) {
                 carrera.setCircuito(circuitoActualizado);
             }
+
             return circuitoRepo.save(circuitoActualizado);
         } else {
-            return circuitoRepo.save(circuito); 
+            return circuitoRepo.save(circuito);
         }
     }
 
     @Override
     public Circuito buscarCircuito(Long id) {
         Optional<Circuito> op = circuitoRepo.findById(id);
-        if (!op.isPresent()) {
-            System.out.println("Circuito no encontrado");
-            return null;
-        } else {
+        if (op.isPresent()) {
             System.out.println("Circuito encontrado con éxito!");
             return op.get();
+        } else {
+            System.out.println("Circuito no encontrado");
+            return null;
         }
     }
 
@@ -62,7 +63,7 @@ public class CircuitoService implements ICircuitoService {
             circuitoRepo.deleteById(id);
             System.out.println("Circuito con el id: " + id + " borrado.");
         }
-        System.out.println("No se encontró el circuito con el id: " + id );
+        System.out.println("No se encontró el circuito con el id: " + id);
     }
 
 }

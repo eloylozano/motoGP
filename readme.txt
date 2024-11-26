@@ -14,7 +14,7 @@ Ejercicio 5:
 Crear un método que nos devuelva que pilotos hicieron pódium y en que carrera(temporada también) 
 
 Ejercicio 6:
-Crear un método que calcule quien es el piloto que calcule quien ha quedado más veces campeón
+Crear un método que calcule quien es el piloto que ha quedado más veces campeón
 
 Ejercicio 7: 
 Crea un endpoint que sea /circuitos/nombreCircuito (para buscar por el nombre del circuito)

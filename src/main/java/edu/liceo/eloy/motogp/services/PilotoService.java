@@ -28,12 +28,13 @@ public class PilotoService implements IPilotoService {
     @Override
     public Piloto buscarPiloto(Long id) {
         Optional<Piloto> op = pilotosRepo.findById(id);
-        if (!op.isPresent()) {
-            System.out.println("Piloto no encontrado");
-            return null;
-        } else {
+        if (op.isPresent()) {
             System.out.println("Piloto encontrado con éxito!");
             return op.get();
+            
+        } else {
+            System.out.println("Piloto no encontrado");
+            return null;
         }
     }
 
@@ -45,6 +46,7 @@ public class PilotoService implements IPilotoService {
             pilotoActualizado.setNombre(piloto.getNombre());
             pilotoActualizado.setConduccion(piloto.getConduccion());
             return pilotosRepo.save(pilotoActualizado);
+
         } else {
             return pilotosRepo.save(piloto);
         }
