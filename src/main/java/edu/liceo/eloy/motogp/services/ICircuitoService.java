@@ -16,4 +16,6 @@ public interface ICircuitoService {
 
     public void eliminarCircuito(Long id);
 
+    public Circuito buscarCircuitoPorNombre(String nombre);
+
 }

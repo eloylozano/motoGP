@@ -22,6 +22,8 @@ public class CircuitoService implements ICircuitoService {
         return circuitoRepo.findAll();
     }
 
+    
+
     @Override
     public Circuito guardarCircuito(Circuito circuito) {
         System.out.println("Circuito guardado!");
@@ -67,6 +69,17 @@ public class CircuitoService implements ICircuitoService {
             System.out.println("Circuito con el id: " + id + " borrado.");
         }
         System.out.println("No se encontró el circuito con el id: " + id);
+    }
+
+    @Override
+    public Circuito buscarCircuitoPorNombre(String nombre) {
+        Optional<Circuito> op = circuitoRepo.findByNombre(nombre);
+        if (op.isPresent()) {
+            circuitoRepo.findByNombre(nombre);
+            return op.get();
+        } else {
+            return null;
+        }
     }
 
 }
