@@ -46,12 +46,8 @@ public class CircuitoController {
     }
 
     @DeleteMapping("/eliminarcircuito/{id}")
-    public String eliminarCircuito(@PathVariable("id") Long id) {
-        Circuito circuito = circuitoService.eliminarCircuito(id);
-        if (circuito == null) {
-            return "Circuito con ID " + id + " no encontrado. No se pudo borrar.";
-        }
-        return "Circuito eliminado con éxito.";
+    public void eliminarCircuito(@PathVariable("id") Long id) {
+        circuitoService.eliminarCircuito(id);
     }
 
 }

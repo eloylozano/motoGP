@@ -57,16 +57,12 @@ public class CircuitoService implements ICircuitoService {
     }
 
     @Override
-    public Circuito eliminarCircuito(Long id) {
-        Optional<Circuito> op = circuitoRepo.findById(id);
-        if (!op.isPresent()) {
-            System.out.println("Circuito no encontrado. No se pudo borrar!");
-            return null;
-        } else {
-            System.out.println("Se ha borrado el circuito con el id: " + id);
+    public void eliminarCircuito(Long id) {
+        if (circuitoRepo.existsById(id)) {
             circuitoRepo.deleteById(id);
-            return op.get();
+            System.out.println("Circuito con el id: " + id + " borrado.");
         }
+        System.out.println("No se encontró el circuito con el id: " + id );
     }
 
 }

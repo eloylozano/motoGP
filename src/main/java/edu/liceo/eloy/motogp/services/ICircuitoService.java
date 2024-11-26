@@ -14,6 +14,6 @@ public interface ICircuitoService {
 
     public Circuito buscarCircuito(Long id);
 
-    public Circuito eliminarCircuito(Long id);
+    public void eliminarCircuito(Long id);
 
 }

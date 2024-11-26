@@ -56,7 +56,7 @@ public class PilotoService implements IPilotoService {
             pilotosRepo.deleteById(id);
             System.out.println("Piloto con el id: " + id + " borrado.");
         }
-        System.out.println("No se encontró el piloto con el id: " + id + " borrado.");
+        System.out.println("No se encontró el piloto con el id: " + id);
     }
 
 
