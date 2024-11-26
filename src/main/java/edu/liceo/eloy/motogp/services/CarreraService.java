@@ -29,8 +29,19 @@ public class CarreraService implements ICarreraService {
 
     @Override
     public Carrera actualizarCarrera(Carrera carrera) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actualizarCarrera'");
+        Optional<Carrera> carreraExistente = carrerasRepo.findById(carrera.getId());
+        if (carreraExistente.isPresent()) {
+            Carrera carreraActualizada = carreraExistente.get();
+            carreraActualizada.setPiloto(carrera.getPiloto());
+            carreraActualizada.setCircuito(carrera.getCircuito());
+            carreraActualizada.setTemporada(carrera.getTemporada());
+            carreraActualizada.setPosicion(carrera.getPosicion());
+
+            return carrerasRepo.save(carreraActualizada);
+        } else{
+            return carrerasRepo.save(carrera);
+        }
+        
     }
 
     @Override

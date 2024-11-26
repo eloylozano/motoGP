@@ -59,26 +59,28 @@ public class Carrera {
         this.circuito = circuito;
     }
 
-    public String getTemporada() {
-        return temporada;
-    }
-
-    public String setTemporada() {
-        return temporada;
-    }
-
     public int getPosicion() {
         return posicion;
     }
 
-    public void setPosicion(int posicion) {
+    public void setPosicion(Integer posicion) {
         this.posicion = posicion;
     }
+
+    public String getTemporada() {
+        return temporada;
+    }
+
+    public void setTemporada(String temporada) {
+        this.temporada = temporada;
+    }
+
 
     @Override
     public String toString() {
         return "Carrera [id=" + id + ", piloto=" + piloto + ", circuito=" + circuito + ", temporada=" + temporada
                 + ", posicion=" + posicion + "]";
+
     }
 
 }

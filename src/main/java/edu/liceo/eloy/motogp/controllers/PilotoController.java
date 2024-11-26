@@ -24,17 +24,17 @@ public class PilotoController {
         return pilotoService.guardarPiloto(piloto);
     }
 
-    @GetMapping("pilotos/{id}")
+    @GetMapping("/pilotos/{id}")
     public Piloto verPiloto(@PathVariable("id") Long id) {
         return pilotoService.buscarPiloto(id);
     }
 
-    @PutMapping("actualizarpiloto")
+    @PutMapping("/actualizarpiloto")
     public Piloto actualizarPiloto(@RequestBody Piloto piloto) {
         return pilotoService.actualizarPiloto(piloto);
     }
 
-    @DeleteMapping("eliminarpiloto/{id}")
+    @DeleteMapping("/eliminarpiloto/{id}")
     public void borrarPiloto(@PathVariable("id") Long id) {
         pilotoService.borrarPiloto(id);
     }

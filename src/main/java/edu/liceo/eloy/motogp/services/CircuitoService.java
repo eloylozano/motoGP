@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import edu.liceo.eloy.motogp.model.Carrera;
 import edu.liceo.eloy.motogp.model.Circuito;
 import edu.liceo.eloy.motogp.repositories.ICircuitoRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class CircuitoService implements ICircuitoService {
@@ -57,6 +58,8 @@ public class CircuitoService implements ICircuitoService {
         }
     }
 
+
+    @Transactional
     @Override
     public void eliminarCircuito(Long id) {
         if (circuitoRepo.existsById(id)) {

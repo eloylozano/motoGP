@@ -3,13 +3,10 @@ package edu.liceo.eloy.motogp.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
 
 import edu.liceo.eloy.motogp.model.Carrera;
 import edu.liceo.eloy.motogp.services.ICarreraService;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.GetMapping;
-
 
 @RestController
 public class CarreraController {
@@ -26,13 +23,18 @@ public class CarreraController {
     public Carrera encontrarCarrera(@PathVariable("id") Long id) {
         return carreraService.buscarCarrera(id);
     }
-    
-    @PostMapping("carreras/save")
+
+    @PostMapping("/carreras/save")
     public Carrera agregarCarrera(@RequestBody Carrera carrera) {
         return carreraService.guardarCarrera(carrera);
     }
 
-    @DeleteMapping("borrarCarrera/{id}")
+    @PutMapping("/actualizarcarrera")
+    public Carrera cambiarCarrera(@RequestBody Carrera carrera) {
+        return carreraService.actualizarCarrera(carrera);
+    }
+
+    @DeleteMapping("/borrarCarrera/{id}")
     public void eliminarCarrera(@PathVariable("id") Long id) {
         carreraService.borrarCarreras(id);
     }

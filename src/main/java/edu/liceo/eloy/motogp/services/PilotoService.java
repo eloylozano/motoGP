@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import edu.liceo.eloy.motogp.model.Piloto;
 import edu.liceo.eloy.motogp.repositories.IPilotoRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class PilotoService implements IPilotoService {
@@ -52,6 +53,7 @@ public class PilotoService implements IPilotoService {
         }
     }
 
+    @Transactional
     @Override
     public void borrarPiloto(Long id) {
         if (pilotosRepo.existsById(id)) {
