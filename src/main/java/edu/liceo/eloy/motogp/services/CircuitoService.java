@@ -33,20 +33,14 @@ public class CircuitoService implements ICircuitoService {
 
         if (circuitoExistente.isPresent()) {
             Circuito circuitoActualizado = circuitoExistente.get();
-
-            // Actualizar las propiedades del circuito
             circuitoActualizado.setNombre(circuito.getNombre());
             circuitoActualizado.setLocalidad(circuito.getLocalidad());
-
-            // Si las carreras también se deben actualizar, manejar eso
             for (Carrera carrera : circuito.getCarreras()) {
-                carrera.setCircuito(circuitoActualizado); // Asegurarse de que cada carrera esté asociada al circuito
-                                                          // actualizado
+                carrera.setCircuito(circuitoActualizado);
             }
-
             return circuitoRepo.save(circuitoActualizado);
         } else {
-            return circuitoRepo.save(circuito); // Si no existe, guardar como nuevo
+            return circuitoRepo.save(circuito); 
         }
     }
 

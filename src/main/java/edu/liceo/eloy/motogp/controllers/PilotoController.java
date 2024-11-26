@@ -35,8 +35,8 @@ public class PilotoController {
     }
 
     @DeleteMapping("eliminarpiloto/{id}")
-    public Piloto borrarPiloto(@PathVariable("id") Long id) {
-        return pilotoService.borrarPiloto(id);
+    public void borrarPiloto(@PathVariable("id") Long id) {
+        pilotoService.borrarPiloto(id);
     }
 
 }

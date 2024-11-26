@@ -14,6 +14,6 @@ public interface IPilotoService {
 
     public Piloto actualizarPiloto(Piloto piloto);
 
-    public Piloto borrarPiloto(Long id);
+    public void borrarPiloto(Long id);
 
 }
