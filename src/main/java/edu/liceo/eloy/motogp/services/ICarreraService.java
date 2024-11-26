@@ -3,6 +3,7 @@ package edu.liceo.eloy.motogp.services;
 import java.util.List;
 
 import edu.liceo.eloy.motogp.model.Carrera;
+import edu.liceo.eloy.motogp.model.Piloto;
 
 public interface ICarreraService {
 
@@ -15,5 +16,6 @@ public interface ICarreraService {
     public Carrera buscarCarrera(Long id);
 
     public void borrarCarreras(Long id);
+
 
 }

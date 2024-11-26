@@ -1,12 +1,17 @@
 package edu.liceo.eloy.motogp.services;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.liceo.eloy.motogp.model.Carrera;
 import edu.liceo.eloy.motogp.model.Piloto;
+import edu.liceo.eloy.motogp.repositories.ICarreraRepository;
 import edu.liceo.eloy.motogp.repositories.IPilotoRepository;
 import jakarta.transaction.Transactional;
 
@@ -14,7 +19,9 @@ import jakarta.transaction.Transactional;
 public class PilotoService implements IPilotoService {
 
     @Autowired
-    public IPilotoRepository pilotosRepo;
+    IPilotoRepository pilotosRepo;
+    @Autowired
+    ICarreraRepository carrerasRepo;
 
     @Override
     public List<Piloto> getPiloto() {
@@ -62,6 +69,18 @@ public class PilotoService implements IPilotoService {
         }
         System.out.println("No se encontró el piloto con el id: " + id);
     }
+
+    @Override
+    public Set<Piloto> pilotosConPodium() {
+        List<Carrera> carrerasPodium = carrerasRepo.findByPosicionBetween(1, 3);
+        Set<Piloto> pilotosPodium = new HashSet<>();
+
+        for (Carrera carrera : carrerasPodium) {
+            pilotosPodium.add(carrera.getPiloto());
+        }
+        return pilotosPodium;
+    }
+
 
 
 }

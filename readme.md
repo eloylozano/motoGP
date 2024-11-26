@@ -1,13 +1,13 @@
-**Ejercicio 1:**
+**Ejercicio 1:
 Crear los entities de las 3 tablas
 
-**Ejercicio 2:**
+**Ejercicio 2:
 Establecer las relaciones entre las tablas usando Spring Data
 
-**Ejercicio 3:**
+**Ejercicio 3:
 Crear los CRUD para los 3 entities. Cuando veamos un objeto piloto, queremos ver en que carreras ha participado y la información de los circuitos en los que corrio
 
-**Ejercicio 4:**
+**Ejercicio 4:
 Crear un método que nos devuelva que pilotos hicieron pódium
 
 **Ejercicio 5:**
@@ -16,7 +16,7 @@ Crear un método que nos devuelva que pilotos hicieron pódium y en que carrera(
 **Ejercicio 6:**
 Crear un método que calcule quien es el piloto que ha quedado más veces campeón
 
-**Ejercicio 7:**
+**Ejercicio 7:
 Crea un endpoint que sea /circuitos/nombreCircuito (para buscar por el nombre del circuito)
 
 

@@ -1,5 +1,6 @@
 package edu.liceo.eloy.motogp.controllers;
 
+import java.util.Set;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,11 @@ public class PilotoController {
     @DeleteMapping("/delete/{id}")
     public void borrarPiloto(@PathVariable("id") Long id) {
         pilotoService.borrarPiloto(id);
+    }
+
+    @GetMapping("/podium")
+    public Set<Piloto> getPilotosEnPodium() {
+        return pilotoService.pilotosConPodium();  
     }
 
 }

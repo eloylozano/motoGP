@@ -1,6 +1,7 @@
 package edu.liceo.eloy.motogp.services;
 
 import java.util.List;
+import java.util.Set;
 
 import edu.liceo.eloy.motogp.model.Piloto;
 
@@ -15,5 +16,7 @@ public interface IPilotoService {
     public Piloto actualizarPiloto(Piloto piloto);
 
     public void borrarPiloto(Long id);
+
+    public Set<Piloto> pilotosConPodium();
 
 }
