@@ -24,12 +24,12 @@ public class PilotoController {
     }
 
     @PostMapping("/save")
-    public Piloto guardarPiloto(@RequestBody Piloto piloto) {
-        return pilotoService.guardarPiloto(piloto);
+    public PilotoDTO guardarPiloto(@RequestBody PilotoDTO pilotoDTO) {
+        return pilotoService.guardarPiloto(pilotoDTO);
     }
 
     @GetMapping("/{id}")
-    public PilotoDTO verPiloto(@PathVariable("id") Long id) {
+    public Piloto verPiloto(@PathVariable("id") Long id) {
         return pilotoService.buscarPiloto(id);
     }
 

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import edu.liceo.eloy.motogp.controllers.DTO.PilotoDTO;
 import edu.liceo.eloy.motogp.models.Carrera;
+import edu.liceo.eloy.motogp.models.Circuito;
 import edu.liceo.eloy.motogp.models.Piloto;
 import edu.liceo.eloy.motogp.repositories.ICarreraRepository;
 import edu.liceo.eloy.motogp.repositories.IPilotoRepository;
@@ -31,22 +32,34 @@ public class PilotoService implements IPilotoService {
     }
 
     @Override
-    public Piloto guardarPiloto(Piloto piloto) {
-        return pilotosRepo.save(piloto);
+    public PilotoDTO guardarPiloto(PilotoDTO pilotoDTO) {
+        Piloto piloto = new Piloto();
+        piloto.setNombre(pilotoDTO.getNombre());
+        piloto.setConduccion(pilotoDTO.getConduccion());
+        piloto.setCarreras(pilotoDTO.getListaCarreras()); // Si es necesario mapear las carreras también
+
+        // Guardar el Piloto en la base de datos
+        Piloto pilotoGuardado = pilotosRepo.save(piloto);
+
+        // Convertir el Piloto guardado de vuelta a PilotoDTO para devolverlo
+        PilotoDTO pilotoDTORespuesta = new PilotoDTO();
+        pilotoDTORespuesta.setNombre(pilotoGuardado.getNombre());
+        pilotoDTORespuesta.setConduccion(pilotoGuardado.getConduccion());
+        pilotoDTORespuesta.setListaCarreras(pilotoGuardado.getCarreras());
+
+        return pilotoDTORespuesta;
     }
 
     @Override
-    public PilotoDTO buscarPiloto(Long id) {
+    public Piloto buscarPiloto(Long id) {
         Optional<Piloto> op = pilotosRepo.findById(id);
         if (op.isPresent()) {
-            PilotoDTO pilotoDTO = new PilotoDTO();
-            Piloto piloto = op.get();
-            pilotoDTO.setNombre(piloto.getNombre());
-            pilotoDTO.setConduccion(piloto.getConduccion());
-            pilotoDTO.setListaCarreras(piloto.getCarreras());
-            return pilotoDTO;
+            System.out.println("Piloto encontrado con éxito!");
+            return op.get();
+        } else {
+            System.out.println("Piloto no encontrado");
+            return null;
         }
-        return null;
     }
 
     @Override
@@ -91,11 +104,11 @@ public class PilotoService implements IPilotoService {
         List<Integer> conteos = new ArrayList<>();
         Piloto pilotoLaureado = null;
         int maxVictorias = 0;
-    
+
         // Recorrer las carreras
         for (Carrera carrera : carreras) {
             Piloto piloto = carrera.getPiloto();
-    
+
             // Buscar si el piloto ya está en la lista de únicos
             int index = pilotosUnicos.indexOf(piloto);
             if (index != -1) {
@@ -107,7 +120,7 @@ public class PilotoService implements IPilotoService {
                 conteos.add(1);
             }
         }
-    
+
         // Determinar el piloto con más victorias
         for (int i = 0; i < conteos.size(); i++) {
             if (conteos.get(i) > maxVictorias) {
@@ -115,7 +128,7 @@ public class PilotoService implements IPilotoService {
                 pilotoLaureado = pilotosUnicos.get(i);
             }
         }
-    
+
         return pilotoLaureado;
     }
 

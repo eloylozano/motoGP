@@ -3,7 +3,6 @@ package edu.liceo.eloy.motogp.controllers.DTO;
 import java.util.List;
 
 import edu.liceo.eloy.motogp.models.Carrera;
-import edu.liceo.eloy.motogp.models.enumerated.Conduccion;
 
 public class CircuitoDTO {
 

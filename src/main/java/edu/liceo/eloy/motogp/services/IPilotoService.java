@@ -10,9 +10,9 @@ public interface IPilotoService {
 
     public List<Piloto> getPiloto();
 
-    public Piloto guardarPiloto(Piloto piloto);
+    public PilotoDTO guardarPiloto(PilotoDTO pilotoDTO);
 
-    public PilotoDTO buscarPiloto(Long id);
+    public Piloto buscarPiloto(Long id);
 
     public Piloto actualizarPiloto(Piloto piloto);
 

@@ -22,7 +22,7 @@ Crea un endpoint que sea /circuitos/nombreCircuito (para buscar por el nombre de
 **CREAR DTOs para controlar la información que saldrá del sistema:**
 Paso 1: Crear una clase DTO por cada entity (excluyendo IDs)
 Paso 2: Cambiar lo que devuelven los métodos de los controladores (solo deben devolver DTOs)
-Paso 3: EEn el servicio, cuando recuperamos objetos de la base de datos, hay que convertirlos a objetos DTO, por ejemplo, si buscamos una carrera por su id, una vez encontrada, tenemos que convertir ese objeto Carrera en un objeto CarreraDTO y pasárselo al controller.
+Paso 3: En el servicio, cuando recuperamos objetos de la base de datos, hay que convertirlos a objetos DTO, por ejemplo, si buscamos una carrera por su id, una vez encontrada, tenemos que convertir ese objeto Carrera en un objeto CarreraDTO y pasárselo al controller.
 
 
 INSERT INTO piloto (id, nombre, conducción) VALUES
