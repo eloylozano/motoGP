@@ -9,6 +9,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.liceo.eloy.motogp.controllers.DTO.PilotoDTO;
 import edu.liceo.eloy.motogp.models.Carrera;
 import edu.liceo.eloy.motogp.models.Piloto;
 import edu.liceo.eloy.motogp.repositories.ICarreraRepository;
@@ -35,16 +36,17 @@ public class PilotoService implements IPilotoService {
     }
 
     @Override
-    public Piloto buscarPiloto(Long id) {
+    public PilotoDTO buscarPiloto(Long id) {
         Optional<Piloto> op = pilotosRepo.findById(id);
         if (op.isPresent()) {
-            System.out.println("Piloto encontrado con éxito!");
-            return op.get();
-
-        } else {
-            System.out.println("Piloto no encontrado");
-            return null;
+            PilotoDTO pilotoDTO = new PilotoDTO();
+            Piloto piloto = op.get();
+            pilotoDTO.setNombre(piloto.getNombre());
+            pilotoDTO.setConduccion(piloto.getConduccion());
+            pilotoDTO.setListaCarreras(piloto.getCarreras());
+            return pilotoDTO;
         }
+        return null;
     }
 
     @Override

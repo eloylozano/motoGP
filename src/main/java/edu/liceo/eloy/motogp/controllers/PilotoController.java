@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import edu.liceo.eloy.motogp.controllers.DTO.PilotoDTO;
 import edu.liceo.eloy.motogp.models.Piloto;
 import edu.liceo.eloy.motogp.services.IPilotoService;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,7 @@ public class PilotoController {
     }
 
     @GetMapping("/{id}")
-    public Piloto verPiloto(@PathVariable("id") Long id) {
+    public PilotoDTO verPiloto(@PathVariable("id") Long id) {
         return pilotoService.buscarPiloto(id);
     }
 
