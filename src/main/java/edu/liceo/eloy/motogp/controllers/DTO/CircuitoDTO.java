@@ -10,11 +10,8 @@ public class CircuitoDTO {
     private String nombre;
 
     private String localidad;
-    
+
     private List<Carrera> listaCarreras;
-
-
-
 
 
 
