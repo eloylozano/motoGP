@@ -3,7 +3,7 @@ package edu.liceo.eloy.motogp.services;
 import java.util.List;
 import java.util.Set;
 
-import edu.liceo.eloy.motogp.model.Piloto;
+import edu.liceo.eloy.motogp.models.Piloto;
 
 public interface IPilotoService {
 

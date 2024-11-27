@@ -1,11 +1,11 @@
-package edu.liceo.eloy.motogp.model;
+package edu.liceo.eloy.motogp.models;
 
 import java.util.List;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import edu.liceo.eloy.motogp.model.enumerated.Conduccion;
+import edu.liceo.eloy.motogp.models.enumerated.Conduccion;
 import jakarta.persistence.*;
 
 @Entity

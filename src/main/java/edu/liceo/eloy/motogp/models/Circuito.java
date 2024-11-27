@@ -1,4 +1,4 @@
-package edu.liceo.eloy.motogp.model;
+package edu.liceo.eloy.motogp.models;
 
 import java.util.List;
 

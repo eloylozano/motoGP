@@ -9,8 +9,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.liceo.eloy.motogp.model.Carrera;
-import edu.liceo.eloy.motogp.model.Piloto;
+import edu.liceo.eloy.motogp.models.Carrera;
+import edu.liceo.eloy.motogp.models.Piloto;
 import edu.liceo.eloy.motogp.repositories.ICarreraRepository;
 import edu.liceo.eloy.motogp.repositories.IPilotoRepository;
 import jakarta.transaction.Transactional;

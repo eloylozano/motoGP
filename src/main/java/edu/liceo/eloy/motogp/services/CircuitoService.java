@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.liceo.eloy.motogp.model.Carrera;
-import edu.liceo.eloy.motogp.model.Circuito;
+import edu.liceo.eloy.motogp.models.Carrera;
+import edu.liceo.eloy.motogp.models.Circuito;
 import edu.liceo.eloy.motogp.repositories.ICircuitoRepository;
 import jakarta.transaction.Transactional;
 

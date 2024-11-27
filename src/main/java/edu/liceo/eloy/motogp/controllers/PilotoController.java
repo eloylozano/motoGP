@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import edu.liceo.eloy.motogp.model.Piloto;
+import edu.liceo.eloy.motogp.models.Piloto;
 import edu.liceo.eloy.motogp.services.IPilotoService;
 import org.springframework.web.bind.annotation.*;
 

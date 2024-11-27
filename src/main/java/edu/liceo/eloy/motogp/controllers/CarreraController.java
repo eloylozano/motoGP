@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import edu.liceo.eloy.motogp.model.Carrera;
+import edu.liceo.eloy.motogp.models.Carrera;
 import edu.liceo.eloy.motogp.services.ICarreraService;
 import org.springframework.web.bind.annotation.*;
 

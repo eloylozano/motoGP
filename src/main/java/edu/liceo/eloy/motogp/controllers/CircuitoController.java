@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import edu.liceo.eloy.motogp.model.Circuito;
+import edu.liceo.eloy.motogp.models.Circuito;
 import edu.liceo.eloy.motogp.services.ICircuitoService;
 
 
@@ -27,7 +27,7 @@ public class CircuitoController {
         return circuitoService.guardarCircuito(circuito);
     }
 
-    @GetMapping("/findById/{id}")
+    @GetMapping("/{id}")
     public Circuito verCircuito(@PathVariable("id") Long id) {
         return circuitoService.buscarCircuito(id);
     }

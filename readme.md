@@ -13,11 +13,16 @@ Crear un método que nos devuelva que pilotos hicieron pódium
 **Ejercicio 5:
 Crear un método que nos devuelva que pilotos hicieron pódium y en que carrera(temporada también)
 
-**Ejercicio 6:**
+**Ejercicio 6:
 Crear un método que calcule quien es el piloto que ha quedado más veces campeón
 
 **Ejercicio 7:
 Crea un endpoint que sea /circuitos/nombreCircuito (para buscar por el nombre del circuito)
+
+**CREAR DTOs para controlar la información que saldrá del sistema:**
+Paso 1: Crear una clase DTO por cada entity (excluyendo IDs)
+Paso 2: Cambiar lo que devuelven los métodos de los controladores (solo deben devolver DTOs)
+Paso 3: EEn el servicio, cuando recuperamos objetos de la base de datos, hay que convertirlos a objetos DTO, por ejemplo, si buscamos una carrera por su id, una vez encontrada, tenemos que convertir ese objeto Carrera en un objeto CarreraDTO y pasárselo al controller.
 
 
 INSERT INTO piloto (id, nombre, conducción) VALUES

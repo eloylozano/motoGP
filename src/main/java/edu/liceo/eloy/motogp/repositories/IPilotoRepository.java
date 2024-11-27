@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import edu.liceo.eloy.motogp.model.Piloto;
+import edu.liceo.eloy.motogp.models.Piloto;
 
 public interface IPilotoRepository extends JpaRepository<Piloto, Long> {
 

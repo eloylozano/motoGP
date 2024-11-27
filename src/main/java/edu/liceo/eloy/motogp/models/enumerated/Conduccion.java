@@ -1,4 +1,4 @@
-package edu.liceo.eloy.motogp.model.enumerated;
+package edu.liceo.eloy.motogp.models.enumerated;
 
 public enum Conduccion {
 

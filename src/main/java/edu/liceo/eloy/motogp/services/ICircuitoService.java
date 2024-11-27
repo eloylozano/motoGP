@@ -2,7 +2,7 @@ package edu.liceo.eloy.motogp.services;
 
 import java.util.List;
 
-import edu.liceo.eloy.motogp.model.Circuito;
+import edu.liceo.eloy.motogp.models.Circuito;
 
 public interface ICircuitoService {
 
