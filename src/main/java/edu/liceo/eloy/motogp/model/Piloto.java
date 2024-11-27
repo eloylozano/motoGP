@@ -5,8 +5,6 @@ import java.util.List;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import edu.liceo.eloy.motogp.model.enumerated.Conduccion;
 import jakarta.persistence.*;
 
@@ -27,7 +25,6 @@ public class Piloto {
 
     @OnDelete(action = OnDeleteAction.CASCADE)
     @OneToMany(mappedBy = "piloto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnore
     private List<Carrera> carreras;
 
     public Piloto() {
