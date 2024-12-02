@@ -19,8 +19,8 @@ public class PilotoController {
     IPilotoService pilotoService;
 
     @GetMapping("/list")
-    public List<Piloto> listarPilotos() {
-        return pilotoService.getPiloto();
+    public List<PilotoDTO> listarPilotos() {
+        return pilotoService.getListaPilotos();
     }
 
     @PostMapping("/save")
@@ -29,8 +29,8 @@ public class PilotoController {
     }
 
     @GetMapping("/{id}")
-    public Piloto verPiloto(@PathVariable("id") Long id) {
-        return pilotoService.buscarPiloto(id);
+    public PilotoDTO verPiloto(@PathVariable("id") Long id) {
+        return pilotoService.getPilotoId(id);
     }
 
     @PutMapping("/update")

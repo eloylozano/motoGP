@@ -8,11 +8,11 @@ import edu.liceo.eloy.motogp.models.Piloto;
 
 public interface IPilotoService {
 
-    public List<Piloto> getPiloto();
+    public List<PilotoDTO> getListaPilotos();
 
     public PilotoDTO guardarPiloto(PilotoDTO pilotoDTO);
 
-    public Piloto buscarPiloto(Long id);
+    public PilotoDTO getPilotoId(Long id);
 
     public Piloto actualizarPiloto(Piloto piloto);
 
