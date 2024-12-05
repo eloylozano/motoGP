@@ -19,6 +19,26 @@ Crear un método que calcule quien es el piloto que ha quedado más veces campe�
 **Ejercicio 7:
 Crea un endpoint que sea /circuitos/nombreCircuito (para buscar por el nombre del circuito)
 
+
+
+
+
+
+**Ej Extra 01:**
+Solicitnado el "id" de un piloto. Obtenemos su nombre y el número de carreras.
+
+**Ej Extra 02:**
+Con el endpoint "/podiums".
+Obtenemos el nombre de los pilotoso que quedaron entre los 3 primeros
+
+**Ej Extra 03:**
+Con el endpoint "/conduccion/{estilo}. Obtenemos las características de los pilotos que tengan ese estilo.
+
+
+
+
+
+
 **CREAR DTOs para controlar la información que saldrá del sistema:**
 Paso 1: Crear una clase DTO por cada entity (excluyendo IDs)
 Paso 2: Cambiar lo que devuelven los métodos de los controladores (solo deben devolver DTOs)

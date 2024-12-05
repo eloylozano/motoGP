@@ -3,6 +3,7 @@ package edu.liceo.eloy.motogp.services;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import edu.liceo.eloy.motogp.controllers.DTO.PilotoDTO;
 import edu.liceo.eloy.motogp.models.*;
+import edu.liceo.eloy.motogp.models.enumerated.Conduccion;
 import edu.liceo.eloy.motogp.repositories.ICarreraRepository;
 import edu.liceo.eloy.motogp.repositories.IPilotoRepository;
 import jakarta.transaction.Transactional;
@@ -146,6 +148,30 @@ public class PilotoService implements IPilotoService {
         }
 
         return pilotoLaureado;
+    }
+
+    @Override
+    public List<PilotoDTO> getPilotoByEstilo(Conduccion conduccion) {
+        List<Piloto> pilotos = pilotosRepo.findByConduccion(conduccion);
+
+        if (pilotos.isEmpty()) {
+            System.out.println("No se han encontrado pilotos con ese estilo de conducción.");
+            return null; 
+        }
+
+        // Crear lista para almacenar los DTOs
+        List<PilotoDTO> pilotosDTO = new ArrayList<>();
+
+        // Convertir cada Piloto a PilotoDTO usando un bucle
+        for (Piloto piloto : pilotos) {
+            PilotoDTO pilotoDTO = new PilotoDTO(
+                    piloto.getNombre(),
+                    piloto.getConduccion(),
+                    piloto.getCarreras());
+            pilotosDTO.add(pilotoDTO);
+        }
+
+        return pilotosDTO;
     }
 
 }

@@ -5,6 +5,7 @@ import java.util.Set;
 
 import edu.liceo.eloy.motogp.controllers.DTO.PilotoDTO;
 import edu.liceo.eloy.motogp.models.Piloto;
+import edu.liceo.eloy.motogp.models.enumerated.Conduccion;
 
 public interface IPilotoService {
 
@@ -22,5 +23,5 @@ public interface IPilotoService {
 
     public Piloto mayorVictorias();
 
-
+    public List<PilotoDTO> getPilotoByEstilo(Conduccion conduccion);
 }
