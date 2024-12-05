@@ -13,8 +13,6 @@ import edu.liceo.eloy.motogp.models.enumerated.Conduccion;
 import edu.liceo.eloy.motogp.services.IPilotoService;
 import org.springframework.web.bind.annotation.*;
 
-
-
 @RestController
 @RequestMapping("/pilotos")
 public class PilotoController {
@@ -23,18 +21,19 @@ public class PilotoController {
     IPilotoService pilotoService;
 
     @GetMapping("/list")
-    public List<PilotoDTO> listarPilotos() {
-        return pilotoService.getListaPilotos();
+    public ResponseEntity<List<PilotoDTO>> getListaPilotos() {
+        return ResponseEntity.status(HttpStatus.FOUND).body(pilotoService.getListaPilotos());
     }
 
     @PostMapping("/save")
-    public PilotoDTO guardarPiloto(@RequestBody PilotoDTO pilotoDTO) {
-        return pilotoService.guardarPiloto(pilotoDTO);
+    public ResponseEntity<PilotoDTO> guardarPiloto(@RequestBody Piloto pi) {
+        PilotoDTO pilotoRegistrado = pilotoService.guardarPiloto(pi);
+        return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 
     @GetMapping("/{id}")
-    public PilotoDTO verPiloto(@PathVariable("id") Long id) {
-        return pilotoService.getPilotoId(id);
+    public ResponseEntity<PilotoDTO> getPilotoId(@PathVariable("id") Long id) {
+        return ResponseEntity.ok().body(pilotoService.getPilotoId(id));
     }
 
     @PutMapping("/update")
@@ -49,14 +48,14 @@ public class PilotoController {
 
     @GetMapping("/podium")
     public Set<Piloto> getPilotosEnPodium() {
-        return pilotoService.pilotosConPodium();  
+        return pilotoService.pilotosConPodium();
     }
 
     @GetMapping("/maslaureado")
     public Piloto masLaureado() {
         return pilotoService.mayorVictorias();
     }
-    
+
     @GetMapping("/conduccion/{estilo}")
     public ResponseEntity<List<PilotoDTO>> getPilotosPorEstilo(@PathVariable("estilo") Conduccion conduccion) {
         List<PilotoDTO> pilotosDTO = pilotoService.getPilotoByEstilo(conduccion);
@@ -69,5 +68,3 @@ public class PilotoController {
     }
 
 }
-
-

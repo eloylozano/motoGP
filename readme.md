@@ -31,7 +31,7 @@ Solicitnado el "id" de un piloto. Obtenemos su nombre y el número de carreras.
 Con el endpoint "/podiums".
 Obtenemos el nombre de los pilotoso que quedaron entre los 3 primeros
 
-**Ej Extra 03:**
+**Ej Extra 03:
 Con el endpoint "/conduccion/{estilo}. Obtenemos las características de los pilotos que tengan ese estilo.
 
 

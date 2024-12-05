@@ -44,23 +44,16 @@ public class PilotoService implements IPilotoService {
     }
 
     @Override
-    public PilotoDTO guardarPiloto(PilotoDTO pilotoDTO) {
-        Piloto piloto = new Piloto();
-        piloto.setNombre(pilotoDTO.getNombre());
-        piloto.setConduccion(pilotoDTO.getConduccion());
-        piloto.setCarreras(pilotoDTO.getListaCarreras()); // Si es necesario mapear las carreras también
+    public PilotoDTO guardarPiloto(Piloto pi) {
+        Piloto pilotoBD = pilotosRepo.save(pi);
+        PilotoDTO pilotoDTO = new PilotoDTO();
 
-        // Guardar el Piloto en la base de datos
-        Piloto pilotoGuardado = pilotosRepo.save(piloto);
-
-        // Convertir el Piloto guardado de vuelta a PilotoDTO para devolverlo
-        PilotoDTO pilotoDTORespuesta = new PilotoDTO();
-        pilotoDTORespuesta.setNombre(pilotoGuardado.getNombre());
-        pilotoDTORespuesta.setConduccion(pilotoGuardado.getConduccion());
-        pilotoDTORespuesta.setListaCarreras(pilotoGuardado.getCarreras());
-
-        return pilotoDTORespuesta;
+        pilotoDTO.setNombre(pilotoBD.getNombre());
+        pilotoDTO.setConduccion(pilotoBD.getConduccion());
+        pilotoDTO.setListaCarreras(pilotoBD.getCarreras());
+        return pilotoDTO;
     }
+    
 
     @Override
     public PilotoDTO getPilotoId(Long id) {

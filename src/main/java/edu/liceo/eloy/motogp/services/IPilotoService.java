@@ -11,7 +11,7 @@ public interface IPilotoService {
 
     public List<PilotoDTO> getListaPilotos();
 
-    public PilotoDTO guardarPiloto(PilotoDTO pilotoDTO);
+    public PilotoDTO guardarPiloto(Piloto piloto);
 
     public PilotoDTO getPilotoId(Long id);
 
